@@ -12,11 +12,12 @@
 #' @export
 Graph_Function <- function(data, Xvar, Yvar, fill_data, facet_var, Xtext, Ytext){
        Plot_Data=data
-            Plot_One <- ggplot(Plot_Data, aes(x = {{ Xvar }}, y = {{ Yvar }}, fill = {{ fill_data }})) +
+            Plot_One <- ggplot2::ggplot(Plot_Data, aes(x = {{ Xvar }}, y = {{ Yvar }}, fill = {{ fill_data }})) +
              geom_violin() +
                  xlab(Xtext) +
                  ylab(Ytext) +
-                  facet_wrap( {{ facet_var }})
+                  facet_wrap( {{ facet_var }}) +
+              theme_bw()
 
              print(Plot_One)
 

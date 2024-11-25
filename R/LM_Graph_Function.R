@@ -10,7 +10,7 @@ LM_Graph_Function <- function(data, x_var, y_var){
        lm_model <- lm(paste(y_var, "~", x_var), data = data)
 
 
-       ggplot(data, aes_string(x = x_var, y = y_var)) +
+     ggplot2::ggplot(data, aes_string(x = x_var, y = y_var)) +
              geom_point(size = 0.5) +
              geom_smooth(method = "lm",
                          color = "navy",

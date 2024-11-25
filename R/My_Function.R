@@ -5,14 +5,14 @@
 #'
 #' @return column indicating fish that are too small. Will print "Check small value"
 #' @export
-my_function <- function(filepath, columns){
+my_function <- function(filepath, columns, value){
   my_function_modified <- filepath %>%
     filter(!is.na( {{ columns }} )) %>%
     pull({{columns}})
 
   results <- (my_function_modified) / 2
   for (result in results){
-    if (result < 25){
+    if (result < value){
       message(paste("Check small value:", result))
     }
   }

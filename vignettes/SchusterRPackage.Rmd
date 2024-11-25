@@ -7,6 +7,13 @@ vignette: >
   %\VignetteEncoding{UTF-8}
 ---
 
+
+## Introducing the posterior Trace Package 
+-A few words about your motivations in writing this R package/ What is it meant to do, what type of data does it wrok with 
+
+## Installation Instructions 
+
+
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -15,5 +22,50 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+devtools::install_github("BennyShoe/Project_three")
 library(SchusterRPackage)
+```
+
+## Where to get the data 
+-Could use google sheets 
+-Can stash data in an R package 
+
+
+##Function one filters the data to remove NAs and juveniles from the dataset
+```{r}
+SchusterRPackage::Filter_Function()
+```
+##Function two creates a violin plot 
+```{r}
+
+SchusterRPackage::Graph_Function()
+
+```
+
+##Function three allows you to check to see if fish in selected column are too small
+```{r}
+
+SchusterRPackage::my_function()
+
+```
+
+##Function four Calculates three ratios of a selected columns and adds a new columns the dataset with those values
+```{r}
+
+SchusterRPackage::Ratio_Function()
+
+```
+
+##Fucntion five creates a linear model graph
+```{r}
+
+SchusterRPackage::LM_Graph_Function()
+
+```
+
+##Function six crates various linear model tests to see if your data is normally disturbed
+```{r}
+
+SchusterRPackage::LM_Function()
+
 ```
