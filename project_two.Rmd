@@ -72,7 +72,7 @@ ggplot(Fish_Data, aes(x = SL, y = LL)) +
 
 #Calculated R^2 value: broom::glance(lm_model_one)
  
-
+#AMW: That is a pretty classic "no relationship" 
 
 ```
 
@@ -86,7 +86,7 @@ ggplot(Fish_Data, aes(x = SL, y = LL)) +
 
 5) Plot the model on the graph. Increase the size of the text so it is comfortably readable at 5 feet. Make sure axis labels are readable and not overlapping with one another. (5 pts)
 
-```
+```{r}
 #  summary(lm_model_one)
 
 lm_model_one <- lm(SL ~ LL, data = Fish_Data)
@@ -126,6 +126,7 @@ Why is normality of residuals important?
 ```{r}
 
 #Understanding if your data is/not normally distributed is important because it helps interpret the accuracy of the data. Factors such as the p value and confidence intervals are critical of assessing the hypothesis you want to test. 
+#AMW: But why? The data themselves aren't accurate or inaccurate - they're the data. In the case of a non-normal model, some part of your data is being modeled better than some other part.
 ```
 
 7) If you are using `surveys_complete`: Is there interspecific variation in the linear model? Hint: look at our prior work with facet plots. (15 pts) 
@@ -246,6 +247,7 @@ ggplot(Fish_Data, aes(x = LL, y = SL, color = County)) +
     geom_smooth(method = "lm", aes(group = County)) +
     xlab("Lateral Line Length") + ylab("Standard Length") + 
   facet_wrap( "County")
+#AMW: That's more interesting. 
 ```
 
 ```

@@ -4,7 +4,7 @@
 \alias{my_function}
 \title{Checks to see if fish in selected column are too small}
 \usage{
-my_function(filepath, columns)
+my_function(filepath, columns, value)
 }
 \arguments{
 \item{filepath}{The path to the file you want to process}

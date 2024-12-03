@@ -13,7 +13,6 @@ vignette: >
 
 ## Installation Instructions 
 
-
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
@@ -27,45 +26,49 @@ library(SchusterRPackage)
 ```
 
 ## Where to get the data 
--Could use google sheets 
--Can stash data in an R package 
+```{r}
+library(readr)
+gs4_deauth()
+download.file("https://github.com/BennyShoe/Project_three/raw/refs/heads/main/data/R_Project1_Our_Data.csv","/cloud/project/data/Fish_Data.csv")
+
+```
 
 
 ##Function one filters the data to remove NAs and juveniles from the dataset
 ```{r}
-SchusterRPackage::Filter_Function()
+SchusterRPackage::Filter_Function(Fish_Data)
 ```
 ##Function two creates a violin plot 
 ```{r}
 
-SchusterRPackage::Graph_Function()
+SchusterRPackage::Graph_Function(Fish_Data, SL, LL, Sex, "Sex", "SL", "LL")
 
 ```
 
 ##Function three allows you to check to see if fish in selected column are too small
 ```{r}
 
-SchusterRPackage::my_function()
+SchusterRPackage::my_function(Fish_Data, SL, 25)
 
 ```
 
 ##Function four Calculates three ratios of a selected columns and adds a new columns the dataset with those values
 ```{r}
 
-SchusterRPackage::Ratio_Function()
+SchusterRPackage::Ratio_Function(Fish_Data, SL, LL, TV)
 
 ```
 
 ##Fucntion five creates a linear model graph
 ```{r}
 
-SchusterRPackage::LM_Graph_Function()
+SchusterRPackage::LM_Graph_Function(Fish_Data, "SL", "LL")
 
 ```
 
 ##Function six crates various linear model tests to see if your data is normally disturbed
 ```{r}
 
-SchusterRPackage::LM_Function()
+SchusterRPackage::LM_Function(Fish_Data, "SL", "LL")
 
 ```
