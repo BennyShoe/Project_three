@@ -8,7 +8,7 @@ Filter_Function <- function(data){
         data[data == " "] <- NA
         data[data == ""] <- NA
        Clean_Fish_Data <- data %>%
-             na.omit() %>%
+            filter(!is.na(Sex)) %>%
              filter(Sex != "j")
 
          return(Clean_Fish_Data)

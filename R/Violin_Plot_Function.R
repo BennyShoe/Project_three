@@ -10,7 +10,7 @@
 #'
 #' @return A violin plot that is faceted by your specific grouping
 #' @export
-Graph_Function <- function(data, Xvar, Yvar, fill_data, facet_var, Xtext, Ytext){
+Violin_Plot_Function <- function(data, Xvar, Yvar, fill_data, facet_var, Xtext, Ytext){
        Plot_Data=data
             Plot_One <- ggplot2::ggplot(Plot_Data, aes(x = {{ Xvar }}, y = {{ Yvar }}, fill = {{ fill_data }})) +
              geom_violin() +
