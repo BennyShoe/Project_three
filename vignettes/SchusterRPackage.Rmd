@@ -28,6 +28,7 @@ library(SchusterRPackage)
 ## Where to get the data 
 ```{r}
 library(readr)
+library(googlesheets4)
 gs4_deauth()
 download.file("https://github.com/BennyShoe/Project_three/raw/refs/heads/main/data/R_Project1_Our_Data.csv","/cloud/project/data/Fish_Data.csv")
 
