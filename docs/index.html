@@ -45,6 +45,18 @@
 <li>
   <a href="reference/index.html">Reference</a>
 </li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+    Articles
+
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+<li>
+      <a href="articles/Tutorial.html">UNKNOWN TITLE</a>
+    </li>
+  </ul>
+</li>
       </ul>
 <ul class="nav navbar-nav navbar-right"></ul>
 </div>
@@ -70,9 +82,46 @@
 <div class="section level4">
 <h4 id="spring-2024">Spring 2024<a class="anchor" aria-label="anchor" href="#spring-2024"></a>
 </h4>
-<p>#This is a test to see if i can commit and push something to github</p>
 </div>
 </div>
+</div>
+<div class="section level2">
+<h2 id="introducing-the-posterior-trace-package">Introducing the posterior Trace Package<a class="anchor" aria-label="anchor" href="#introducing-the-posterior-trace-package"></a>
+</h2>
+<ul>
+<li>This function works in relation to the Fish_Data dataset provided by Dr.Kyle Piller. This package does various cleaning, manipulating, graphing, and distribution tests using the provided dataset.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="why-use-package">Why use package<a class="anchor" aria-label="anchor" href="#why-use-package"></a>
+</h2>
+<ul>
+<li>This R package will provide useful tools for working with the dataset and can even be potentially applied to your very down data! I am not responsible if my package jacks up your computer or data.</li>
+</ul>
+</div>
+<div class="section level2">
+<h2 id="install-info">Install info<a class="anchor" aria-label="anchor" href="#install-info"></a>
+</h2>
+<pre><code><span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org" class="external-link">googlesheets4</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_deauth.html" class="external-link">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/BennyShoe/Project_three/raw/refs/heads/main/data/R_Project1_Our_Data.csv"</span>,<span class="st">"/cloud/project/data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="co">#Make sure to put the data into a dataframe </span></span></code></pre>
+</div>
+<div class="section level2">
+<h2 id="functions">Functions<a class="anchor" aria-label="anchor" href="#functions"></a>
+</h2>
+<ul>
+<li><p>Tutorials for the functions will be provided in the vignettes folder</p></li>
+<li><p>Function one filters the data to remove NAs and juveniles from the dataset</p></li>
+<li><p>Function two creates a violin plot that will be faceted by a designated variable. For testing I recommend using the example below.</p></li>
+<li><p>Function three allows you to check to see if fish in selected column are too small. I recommend using this function to look at standard lengths(SL) with a range of 15-30.</p></li>
+<li><p>Function four Calculates three ratios of a selected columns and adds a new columns the dataset with those values. The ratios are as followed SL_LL_Ratio(standard length to lateral line length) , SL_TV_Ratio(standard length to total vertebrae count) , and LL_TV_Ratio(lateral line length to total vertebrae count) . For the function to work add the columns in the order listed below.</p></li>
+<li><p>Function five creates a linear model graph. For testing I recommend using the example below.</p></li>
+<li><p>Function six creates various linear model tests to see if your data is normally distributed. For testing I recommend using the example below.</p></li>
+</ul>
 </div>
 </div>
   </div>
