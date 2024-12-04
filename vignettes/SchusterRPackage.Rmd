@@ -21,6 +21,7 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
+library(devtools)
 devtools::install_github("BennyShoe/Project_three")
 library(SchusterRPackage)
 ```

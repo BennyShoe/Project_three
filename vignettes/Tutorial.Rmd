@@ -1,7 +1,11 @@
-# Tutorial 
-
-
-## Install info 
+---
+title: "Tutorial"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Function Tutorial}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+--- 
 ```
 
 library(readr)

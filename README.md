@@ -4,7 +4,7 @@
 #### Spring 2024
 
 
-## Introducing the posterior Trace Package 
+## SchusterRPackage!  
 
 + This function works in relation to the Fish_Data dataset provided by Dr.Kyle Piller. This package does various cleaning, manipulating, graphing, and distribution tests using the provided dataset. 
 
