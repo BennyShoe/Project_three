@@ -68,8 +68,329 @@
 
     
     
+<div class="section level2">
+<h2 id="introducing-the-posterior-trace-package">Introducing the posterior Trace Package<a class="anchor" aria-label="anchor" href="#introducing-the-posterior-trace-package"></a>
+</h2>
+<p>-A few words about your motivations in writing this R package/ What
+is it meant to do, what type of data does it wrok with</p>
+</div>
+<div class="section level2">
+<h2 id="installation-instructions">Installation Instructions<a class="anchor" aria-label="anchor" href="#installation-instructions"></a>
+</h2>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">SchusterRPackage</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"BennyShoe/Project_three"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Using GitHub PAT from the git credential store.</span></span>
+<span><span class="co">#&gt; Downloading GitHub repo BennyShoe/Project_three@HEAD</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">──</span> <span style="color: #00BBBB;">R CMD build</span> <span style="color: #00BBBB;">─────────────────────────────────────────────────────────────────</span></span></span>
+<span><span class="co">#&gt; * checking for file ‘/tmp/Rtmp2A2pbO/remotes4bb523c2a1b/BennyShoe-Project_three-a4fd346/DESCRIPTION’ ... OK</span></span>
+<span><span class="co">#&gt; * preparing ‘SchusterRPackage’:</span></span>
+<span><span class="co">#&gt; * checking DESCRIPTION meta-information ... OK</span></span>
+<span><span class="co">#&gt; * checking for LF line-endings in source and make files and shell scripts</span></span>
+<span><span class="co">#&gt; * checking for empty or unneeded directories</span></span>
+<span><span class="co">#&gt; * looking to see if a ‘data/datalist’ file should be added</span></span>
+<span><span class="co">#&gt; * building ‘SchusterRPackage_0.0.0.9000.tar.gz’</span></span>
+<span><span class="co">#&gt; Warning: invalid uid value replaced by that for user 'nobody'</span></span>
+<span><span class="co">#&gt; Installing package into '/tmp/RtmpIlga5O/temp_libpath14637aec9a0'</span></span>
+<span><span class="co">#&gt; (as 'lib' is unspecified)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">SchusterRPackage</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="where-to-get-the-data">Where to get the data<a class="anchor" aria-label="anchor" href="#where-to-get-the-data"></a>
+</h2>
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readr.tidyverse.org" class="external-link">readr</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://googlesheets4.tidyverse.org" class="external-link">googlesheets4</a></span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://googlesheets4.tidyverse.org/reference/gs4_deauth.html" class="external-link">gs4_deauth</a></span><span class="op">(</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/utils/download.file.html" class="external-link">download.file</a></span><span class="op">(</span><span class="st">"https://github.com/BennyShoe/Project_three/raw/refs/heads/main/data/R_Project1_Our_Data.csv"</span>,<span class="st">"/cloud/project/data/Fish_Data.csv"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="function-one-filters-the-data-to-remove-nas-and-juveniles-from-the-dataset">Function one filters the data to remove NAs and juveniles from the
+dataset<a class="anchor" aria-label="anchor" href="#function-one-filters-the-data-to-remove-nas-and-juveniles-from-the-dataset"></a>
+</h2>
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/Filter_Function.html">Filter_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="function-two-creates-a-violin-plot">Function two creates a violin plot<a class="anchor" aria-label="anchor" href="#function-two-creates-a-violin-plot"></a>
+</h2>
+<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/Violin_Plot_Function.html">Violin_Plot_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="va">SL</span>, <span class="va">LL</span>, <span class="va">Sex</span>, <span class="st">"Sex"</span>, <span class="st">"SL"</span>, <span class="st">"LL"</span><span class="op">)</span></span></code></pre></div>
+<p><img src="SchusterRPackage_files/figure-html/unnamed-chunk-4-1.png" width="700"></p>
+</div>
+<div class="section level2">
+<h2 id="function-three-allows-you-to-check-to-see-if-fish-in-selected-column-are-too-small">Function three allows you to check to see if fish in selected column
+are too small<a class="anchor" aria-label="anchor" href="#function-three-allows-you-to-check-to-see-if-fish-in-selected-column-are-too-small"></a>
+</h2>
+<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Attaching package: 'dplyr'</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:stats':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     filter, lag</span></span>
+<span><span class="co">#&gt; The following objects are masked from 'package:base':</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;     intersect, setdiff, setequal, union</span></span>
+<span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/my_function.html">my_function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="va">SL</span>, <span class="fl">25</span><span class="op">)</span></span>
+<span><span class="co">#&gt; Check small value: 22.25</span></span>
+<span><span class="co">#&gt; Check small value: 15.5</span></span>
+<span><span class="co">#&gt; Check small value: 12</span></span>
+<span><span class="co">#&gt; Check small value: 23.25</span></span>
+<span><span class="co">#&gt; Check small value: 24.75</span></span>
+<span><span class="co">#&gt; Check small value: 19.5</span></span>
+<span><span class="co">#&gt; Check small value: 24</span></span>
+<span><span class="co">#&gt; Check small value: 17.5</span></span>
+<span><span class="co">#&gt; Check small value: 16.5</span></span>
+<span><span class="co">#&gt; Check small value: 22.75</span></span>
+<span><span class="co">#&gt; Check small value: 23.5</span></span>
+<span><span class="co">#&gt; Check small value: 20.75</span></span>
+<span><span class="co">#&gt; Check small value: 20.75</span></span>
+<span><span class="co">#&gt; Check small value: 13</span></span>
+<span><span class="co">#&gt; Check small value: 23.25</span></span>
+<span><span class="co">#&gt; Check small value: 21</span></span>
+<span><span class="co">#&gt; Check small value: 22.25</span></span>
+<span><span class="co">#&gt; Check small value: 20</span></span>
+<span><span class="co">#&gt; Check small value: 19.25</span></span>
+<span><span class="co">#&gt; Check small value: 22.5</span></span>
+<span><span class="co">#&gt; Check small value: 22.5</span></span>
+<span><span class="co">#&gt; Check small value: 21.5</span></span>
+<span><span class="co">#&gt; Check small value: 23</span></span>
+<span><span class="co">#&gt; Check small value: 24</span></span>
+<span><span class="co">#&gt;  [1] 22.25 31.25 33.25 15.50 12.00 23.25 39.50 24.75 36.00 19.50 43.25 35.50</span></span>
+<span><span class="co">#&gt; [13] 24.00 30.75 17.50 33.00 25.00 35.75 33.75 31.00 30.00 16.50 22.75 23.50</span></span>
+<span><span class="co">#&gt; [25] 41.00 30.50 20.75 20.75 34.00 13.00 23.25 21.00 32.00 37.00 28.50 35.00</span></span>
+<span><span class="co">#&gt; [37] 22.25 28.25 20.00 42.00 37.50 35.75 31.75 32.75 31.00 42.75 46.25 38.75</span></span>
+<span><span class="co">#&gt; [49] 35.00 46.25 19.25 22.50 32.00 32.75 22.50 33.50 27.50 21.50 33.25 23.00</span></span>
+<span><span class="co">#&gt; [61] 29.00 29.25 28.50 31.00 30.00 31.00 24.00 35.00 29.25 27.00 30.00 25.75</span></span>
+<span><span class="co">#&gt; [73] 28.50 32.00</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="function-four-calculates-three-ratios-of-a-selected-columns-and-adds-a-new-columns-the-dataset-with-those-values">Function four Calculates three ratios of a selected columns and adds
+a new columns the dataset with those values<a class="anchor" aria-label="anchor" href="#function-four-calculates-three-ratios-of-a-selected-columns-and-adds-a-new-columns-the-dataset-with-those-values"></a>
+</h2>
+<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span></span>
+<span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/Ratio_Function.html">Ratio_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="va">SL</span>, <span class="va">LL</span>, <span class="va">TV</span><span class="op">)</span></span>
+<span><span class="co">#&gt;          Lot.. Specimen.Number Sex   SL LL TV CPD Miller.s.Data State County</span></span>
+<span><span class="co">#&gt; 1     CU 24632              10   m 44.5 78 20  24             y    TN Blount</span></span>
+<span><span class="co">#&gt; 2  USNM 190864               3   m 62.5 68 18  25             y    TN Blount</span></span>
+<span><span class="co">#&gt; 3     CU 24632               2   m 66.5 73 18  25             y    TN Blount</span></span>
+<span><span class="co">#&gt; 4     CU 41384               1   m 31.0 75 18  25             y    TN Blount</span></span>
+<span><span class="co">#&gt; 5  UMMZ 131501               9   j 24.0 65 19  25             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 6     CU 37688               1   m 46.5 68 19  25             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 7  UMMZ 131501               1   m 79.0 68 19  25             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 8     CU 24632               7   m 49.5 72 19  25             y    TN Blount</span></span>
+<span><span class="co">#&gt; 9  UMMZ 131501               3   f 72.0 72 19  25             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 10    CU 23457               7   m 39.0 71 18  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 11    VPI 1543               2   f 86.5 71 18  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 12    VPI 1772               2   m 71.0 71 18  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 13    CU 23457               6   m 48.0 73 18  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 14    CU 24632               5   f 61.5 76 18  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 15    CU 41337               2   m 35.0 64 19  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 16    CU 41882               3   f 66.0 67 19  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 17    CU 24632               6   m 50.0 69 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 18    CU 41882               1   m 71.5 69 19  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 19    CU 24632               1   m 67.5 71 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 20    CU 40114               3   m 62.0 71 19  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 21    CU 41384               3   m 60.0 71 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 22    CU 41420               1   m 33.0 72 19  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 23 USNM 190864               9   f 45.5 72 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 24    CU 24632               9   m 47.0 73 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 25    CU 41337               1   m 82.0 73 19  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 26 USNM 190864               5   f 61.0 74 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 27 USNM 190864              11   f 41.5 74 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 28    CU 41384               2   m 41.5 75 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 29    CU 41384               5   m 68.0 76 19  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 30 UMMZ 131501               8   j 26.0 81 19  26             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 31    CU 24632              11   m 46.5 63 20  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 32    CU 24632              12   m 42.0 68 20  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 33    CU 41882               2   f 64.0 71 20  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 34    CU 41420               2   f 74.0 72 20  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 35 UMMZ 131501               5   f 57.0 72 20  26             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 36    CU 37688               2   f 70.0 73 20  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 37    CU 41337               5   m 44.5 73 20  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 38    CU 40114               4   m 56.5 75 20  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 39 USNM 190864              10   m 40.0 75 20  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 40    CU 40114               1   m 84.0 66 21  26             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 41 UMMZ 131501               2   m 75.0 68 21  26             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 42    CU 41384               6   m 71.5 74 21  26             y    TN Blount</span></span>
+<span><span class="co">#&gt; 43    VPI 1543               1   f 63.5 65 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 44    VPI 1772               1   f 65.5 65 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 45 UMMZ 129304               1   m 62.0 66 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 46    CU 41384               7   f 85.5 69 19  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 47    CU 41384               8   m 92.5 70 19  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 48    CU 23457               1   m 77.5 71 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 49    CU 23457               2   f 70.0 71 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 50    CU 40114               2   m 92.5 71 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 51    CU 41337               3   m 38.5 71 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 52    CU 41337               6   m 45.0 71 19  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 53 UMMZ 131501               4   f 64.0 73 19  27             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 54    CU 41384               4   m 65.5 75 19  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 55 USNM 190864               8   m 45.0 76 19  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 56    CU 23457               3   f 67.0 66 20  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 57    CU 40114               6   m 55.0 67 20  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 58    CU 41337               4   m 43.0 68 20  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 59    CU 24632               4   f 66.5 70 20  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 60    CU 24632               8   m 46.0 70 20  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 61 USNM 190864               2   f 58.0 73 20  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 62 USNM 190864               6   f 58.5 73 20  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 63    VPI 1635               2   f 57.0 74 20  27             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 64 USNM 190864               4   m 62.0 75 20  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 65 UMMZ 131501               6   f 60.0 71 21  27             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 66 USNM 190864               1   m 62.0 72 21  27             y    TN Blount</span></span>
+<span><span class="co">#&gt; 67    CU 23457               5   m 48.0 69 18  28             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 68    CU 24632               3   m 70.0 69 20  28             y    TN Blount</span></span>
+<span><span class="co">#&gt; 69 UMMZ 131501               7   f 58.5 75 20  28             y    TN  Cocke</span></span>
+<span><span class="co">#&gt; 70    CU 40114               5   m 54.0 71 21  28             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 71 USNM 190864               7   f 60.0 69 20  29             y    TN Blount</span></span>
+<span><span class="co">#&gt; 72    CU 23457               4   m 51.5 71 20  29             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 73    VPI 1635               1   f 57.0 71 20  29             y    TN Sevier</span></span>
+<span><span class="co">#&gt; 74 UMMZ 129304               2   m 64.0 66 22  29             y    TN Sevier</span></span>
+<span><span class="co">#&gt;         Drainage                  Group SL_LL_Ratio SL_TV_Ratio LL_TV_Ratio</span></span>
+<span><span class="co">#&gt; 1      Little R. Lwr_Pigeon-LittleRiver   0.5705128    2.225000    3.900000</span></span>
+<span><span class="co">#&gt; 2      Little R. Lwr_Pigeon-LittleRiver   0.9191176    3.472222    3.777778</span></span>
+<span><span class="co">#&gt; 3      Little R. Lwr_Pigeon-LittleRiver   0.9109589    3.694444    4.055556</span></span>
+<span><span class="co">#&gt; 4      Little R. Lwr_Pigeon-LittleRiver   0.4133333    1.722222    4.166667</span></span>
+<span><span class="co">#&gt; 5     Lwr Pigeon Lwr_Pigeon-LittleRiver   0.3692308    1.263158    3.421053</span></span>
+<span><span class="co">#&gt; 6  Little Pigeon Lwr_Pigeon-LittleRiver   0.6838235    2.447368    3.578947</span></span>
+<span><span class="co">#&gt; 7     Lwr Pigeon Lwr_Pigeon-LittleRiver   1.1617647    4.157895    3.578947</span></span>
+<span><span class="co">#&gt; 8      Little R. Lwr_Pigeon-LittleRiver   0.6875000    2.605263    3.789474</span></span>
+<span><span class="co">#&gt; 9     Lwr Pigeon Lwr_Pigeon-LittleRiver   1.0000000    3.789474    3.789474</span></span>
+<span><span class="co">#&gt; 10 Little Pigeon Lwr_Pigeon-LittleRiver   0.5492958    2.166667    3.944444</span></span>
+<span><span class="co">#&gt; 11 Little Pigeon Lwr_Pigeon-LittleRiver   1.2183099    4.805556    3.944444</span></span>
+<span><span class="co">#&gt; 12 Little Pigeon Lwr_Pigeon-LittleRiver   1.0000000    3.944444    3.944444</span></span>
+<span><span class="co">#&gt; 13 Little Pigeon Lwr_Pigeon-LittleRiver   0.6575342    2.666667    4.055556</span></span>
+<span><span class="co">#&gt; 14     Little R. Lwr_Pigeon-LittleRiver   0.8092105    3.416667    4.222222</span></span>
+<span><span class="co">#&gt; 15 Little Pigeon Lwr_Pigeon-LittleRiver   0.5468750    1.842105    3.368421</span></span>
+<span><span class="co">#&gt; 16 Little Pigeon Lwr_Pigeon-LittleRiver   0.9850746    3.473684    3.526316</span></span>
+<span><span class="co">#&gt; 17     Little R. Lwr_Pigeon-LittleRiver   0.7246377    2.631579    3.631579</span></span>
+<span><span class="co">#&gt; 18 Little Pigeon Lwr_Pigeon-LittleRiver   1.0362319    3.763158    3.631579</span></span>
+<span><span class="co">#&gt; 19     Little R. Lwr_Pigeon-LittleRiver   0.9507042    3.552632    3.736842</span></span>
+<span><span class="co">#&gt; 20 Little Pigeon Lwr_Pigeon-LittleRiver   0.8732394    3.263158    3.736842</span></span>
+<span><span class="co">#&gt; 21     Little R. Lwr_Pigeon-LittleRiver   0.8450704    3.157895    3.736842</span></span>
+<span><span class="co">#&gt; 22 Little Pigeon Lwr_Pigeon-LittleRiver   0.4583333    1.736842    3.789474</span></span>
+<span><span class="co">#&gt; 23     Little R. Lwr_Pigeon-LittleRiver   0.6319444    2.394737    3.789474</span></span>
+<span><span class="co">#&gt; 24     Little R. Lwr_Pigeon-LittleRiver   0.6438356    2.473684    3.842105</span></span>
+<span><span class="co">#&gt; 25 Little Pigeon Lwr_Pigeon-LittleRiver   1.1232877    4.315789    3.842105</span></span>
+<span><span class="co">#&gt; 26     Little R. Lwr_Pigeon-LittleRiver   0.8243243    3.210526    3.894737</span></span>
+<span><span class="co">#&gt; 27     Little R. Lwr_Pigeon-LittleRiver   0.5608108    2.184211    3.894737</span></span>
+<span><span class="co">#&gt; 28     Little R. Lwr_Pigeon-LittleRiver   0.5533333    2.184211    3.947368</span></span>
+<span><span class="co">#&gt; 29     Little R. Lwr_Pigeon-LittleRiver   0.8947368    3.578947    4.000000</span></span>
+<span><span class="co">#&gt; 30    Lwr Pigeon Lwr_Pigeon-LittleRiver   0.3209877    1.368421    4.263158</span></span>
+<span><span class="co">#&gt; 31     Little R. Lwr_Pigeon-LittleRiver   0.7380952    2.325000    3.150000</span></span>
+<span><span class="co">#&gt; 32     Little R. Lwr_Pigeon-LittleRiver   0.6176471    2.100000    3.400000</span></span>
+<span><span class="co">#&gt; 33 Little Pigeon Lwr_Pigeon-LittleRiver   0.9014085    3.200000    3.550000</span></span>
+<span><span class="co">#&gt; 34 Little Pigeon Lwr_Pigeon-LittleRiver   1.0277778    3.700000    3.600000</span></span>
+<span><span class="co">#&gt; 35    Lwr Pigeon Lwr_Pigeon-LittleRiver   0.7916667    2.850000    3.600000</span></span>
+<span><span class="co">#&gt; 36 Little Pigeon Lwr_Pigeon-LittleRiver   0.9589041    3.500000    3.650000</span></span>
+<span><span class="co">#&gt; 37 Little Pigeon Lwr_Pigeon-LittleRiver   0.6095890    2.225000    3.650000</span></span>
+<span><span class="co">#&gt; 38 Little Pigeon Lwr_Pigeon-LittleRiver   0.7533333    2.825000    3.750000</span></span>
+<span><span class="co">#&gt; 39     Little R. Lwr_Pigeon-LittleRiver   0.5333333    2.000000    3.750000</span></span>
+<span><span class="co">#&gt; 40 Little Pigeon Lwr_Pigeon-LittleRiver   1.2727273    4.000000    3.142857</span></span>
+<span><span class="co">#&gt; 41    Lwr Pigeon Lwr_Pigeon-LittleRiver   1.1029412    3.571429    3.238095</span></span>
+<span><span class="co">#&gt; 42     Little R. Lwr_Pigeon-LittleRiver   0.9662162    3.404762    3.523810</span></span>
+<span><span class="co">#&gt; 43 Little Pigeon Lwr_Pigeon-LittleRiver   0.9769231    3.342105    3.421053</span></span>
+<span><span class="co">#&gt; 44 Little Pigeon Lwr_Pigeon-LittleRiver   1.0076923    3.447368    3.421053</span></span>
+<span><span class="co">#&gt; 45 Little Pigeon Lwr_Pigeon-LittleRiver   0.9393939    3.263158    3.473684</span></span>
+<span><span class="co">#&gt; 46     Little R. Lwr_Pigeon-LittleRiver   1.2391304    4.500000    3.631579</span></span>
+<span><span class="co">#&gt; 47     Little R. Lwr_Pigeon-LittleRiver   1.3214286    4.868421    3.684211</span></span>
+<span><span class="co">#&gt; 48 Little Pigeon Lwr_Pigeon-LittleRiver   1.0915493    4.078947    3.736842</span></span>
+<span><span class="co">#&gt; 49 Little Pigeon Lwr_Pigeon-LittleRiver   0.9859155    3.684211    3.736842</span></span>
+<span><span class="co">#&gt; 50 Little Pigeon Lwr_Pigeon-LittleRiver   1.3028169    4.868421    3.736842</span></span>
+<span><span class="co">#&gt; 51 Little Pigeon Lwr_Pigeon-LittleRiver   0.5422535    2.026316    3.736842</span></span>
+<span><span class="co">#&gt; 52 Little Pigeon Lwr_Pigeon-LittleRiver   0.6338028    2.368421    3.736842</span></span>
+<span><span class="co">#&gt; 53    Lwr Pigeon Lwr_Pigeon-LittleRiver   0.8767123    3.368421    3.842105</span></span>
+<span><span class="co">#&gt; 54     Little R. Lwr_Pigeon-LittleRiver   0.8733333    3.447368    3.947368</span></span>
+<span><span class="co">#&gt; 55     Little R. Lwr_Pigeon-LittleRiver   0.5921053    2.368421    4.000000</span></span>
+<span><span class="co">#&gt; 56 Little Pigeon Lwr_Pigeon-LittleRiver   1.0151515    3.350000    3.300000</span></span>
+<span><span class="co">#&gt; 57 Little Pigeon Lwr_Pigeon-LittleRiver   0.8208955    2.750000    3.350000</span></span>
+<span><span class="co">#&gt; 58 Little Pigeon Lwr_Pigeon-LittleRiver   0.6323529    2.150000    3.400000</span></span>
+<span><span class="co">#&gt; 59     Little R. Lwr_Pigeon-LittleRiver   0.9500000    3.325000    3.500000</span></span>
+<span><span class="co">#&gt; 60     Little R. Lwr_Pigeon-LittleRiver   0.6571429    2.300000    3.500000</span></span>
+<span><span class="co">#&gt; 61     Little R. Lwr_Pigeon-LittleRiver   0.7945205    2.900000    3.650000</span></span>
+<span><span class="co">#&gt; 62     Little R. Lwr_Pigeon-LittleRiver   0.8013699    2.925000    3.650000</span></span>
+<span><span class="co">#&gt; 63 Little Pigeon Lwr_Pigeon-LittleRiver   0.7702703    2.850000    3.700000</span></span>
+<span><span class="co">#&gt; 64     Little R. Lwr_Pigeon-LittleRiver   0.8266667    3.100000    3.750000</span></span>
+<span><span class="co">#&gt; 65    Lwr Pigeon Lwr_Pigeon-LittleRiver   0.8450704    2.857143    3.380952</span></span>
+<span><span class="co">#&gt; 66     Little R. Lwr_Pigeon-LittleRiver   0.8611111    2.952381    3.428571</span></span>
+<span><span class="co">#&gt; 67 Little Pigeon Lwr_Pigeon-LittleRiver   0.6956522    2.666667    3.833333</span></span>
+<span><span class="co">#&gt; 68     Little R. Lwr_Pigeon-LittleRiver   1.0144928    3.500000    3.450000</span></span>
+<span><span class="co">#&gt; 69    Lwr Pigeon Lwr_Pigeon-LittleRiver   0.7800000    2.925000    3.750000</span></span>
+<span><span class="co">#&gt; 70 Little Pigeon Lwr_Pigeon-LittleRiver   0.7605634    2.571429    3.380952</span></span>
+<span><span class="co">#&gt; 71     Little R. Lwr_Pigeon-LittleRiver   0.8695652    3.000000    3.450000</span></span>
+<span><span class="co">#&gt; 72 Little Pigeon Lwr_Pigeon-LittleRiver   0.7253521    2.575000    3.550000</span></span>
+<span><span class="co">#&gt; 73 Little Pigeon Lwr_Pigeon-LittleRiver   0.8028169    2.850000    3.550000</span></span>
+<span><span class="co">#&gt; 74 Little Pigeon Lwr_Pigeon-LittleRiver   0.9696970    2.909091    3.000000</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="fucntion-five-creates-a-linear-model-graph">Fucntion five creates a linear model graph<a class="anchor" aria-label="anchor" href="#fucntion-five-creates-a-linear-model-graph"></a>
+</h2>
+<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/LM_Graph_Function.html">LM_Graph_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="st">"SL"</span>, <span class="st">"LL"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; `geom_smooth()` using formula = 'y ~ x'</span></span></code></pre></div>
+<p><img src="SchusterRPackage_files/figure-html/unnamed-chunk-7-1.png" width="700"></p>
+</div>
+<div class="section level2">
+<h2 id="function-six-creates-various-linear-model-tests-to-see-if-your-data-is-normally-distributed">Function six creates various linear model tests to see if your data
+is normally distributed<a class="anchor" aria-label="anchor" href="#function-six-creates-various-linear-model-tests-to-see-if-your-data-is-normally-distributed"></a>
+</h2>
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/LM_Function.html">LM_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="st">"SL"</span>, <span class="st">"LL"</span><span class="op">)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; lm(formula = LM_formula, data = data)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residuals:</span></span>
+<span><span class="co">#&gt;     Min      1Q  Median      3Q     Max </span></span>
+<span><span class="co">#&gt; -38.567 -11.451   1.396   9.579  33.973 </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt;             Estimate Std. Error t value Pr(&gt;|t|)   </span></span>
+<span><span class="co">#&gt; (Intercept) 106.3274    36.5306   2.911   0.0048 **</span></span>
+<span><span class="co">#&gt; LL           -0.6732     0.5136  -1.311   0.1941   </span></span>
+<span><span class="co">#&gt; ---</span></span>
+<span><span class="co">#&gt; Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Residual standard error: 14.97 on 72 degrees of freedom</span></span>
+<span><span class="co">#&gt; Multiple R-squared:  0.02331,    Adjusted R-squared:  0.00974 </span></span>
+<span><span class="co">#&gt; F-statistic: 1.718 on 1 and 72 DF,  p-value: 0.1941</span></span></code></pre></div>
+<p><img src="SchusterRPackage_files/figure-html/unnamed-chunk-8-1.png" width="700"></p>
+<pre><code><span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  lm_augmented_fit$.resid</span></span>
+<span><span class="co">#&gt; W = 0.99025, p-value = 0.8449</span></span>
+<span><span class="co">#&gt; $model</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Call:</span></span>
+<span><span class="co">#&gt; lm(formula = LM_formula, data = data)</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; Coefficients:</span></span>
+<span><span class="co">#&gt; (Intercept)           LL  </span></span>
+<span><span class="co">#&gt;    106.3274      -0.6732  </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; $shapiro_test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt;  Shapiro-Wilk normality test</span></span>
+<span><span class="co">#&gt; </span></span>
+<span><span class="co">#&gt; data:  lm_augmented_fit$.resid</span></span>
+<span><span class="co">#&gt; W = 0.99025, p-value = 0.8449</span></span></code></pre>
+</div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">

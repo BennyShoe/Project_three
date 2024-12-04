@@ -47,14 +47,15 @@ SchusterRPackage::Filter_Function(Fish_Data)
 
 Fish_Data <- read.csv("../data/Fish_Data.csv")
 
-
-SchusterRPackage::Violin_Plot_Function(Fish_Data, SL, LL, "Sex", "Sex", "SL", "LL")
+library(ggplot2)
+SchusterRPackage::Violin_Plot_Function(Fish_Data, SL, LL, Sex, "Sex", "SL", "LL")
 
 ```
 
 ## Function three allows you to check to see if fish in selected column are too small
 ```{r}
-
+Fish_Data <- read.csv("../data/Fish_Data.csv")
+library(dplyr)
 SchusterRPackage::my_function(Fish_Data, SL, 25)
 
 ```
@@ -62,20 +63,23 @@ SchusterRPackage::my_function(Fish_Data, SL, 25)
 ## Function four Calculates three ratios of a selected columns and adds a new columns the dataset with those values
 ```{r}
 
+Fish_Data <- read.csv("../data/Fish_Data.csv")
 SchusterRPackage::Ratio_Function(Fish_Data, SL, LL, TV)
 
 ```
 
 ## Fucntion five creates a linear model graph
 ```{r}
-
+Fish_Data <- read.csv("../data/Fish_Data.csv")
+library(ggplot2)
 SchusterRPackage::LM_Graph_Function(Fish_Data, "SL", "LL")
 
 ```
 
-## Function six crates various linear model tests to see if your data is normally disturbed
+## Function six creates  various linear model tests to see if your data is normally distributed
 ```{r}
-
+Fish_Data <- read.csv("../data/Fish_Data.csv")
+library(ggplot2)
 SchusterRPackage::LM_Function(Fish_Data, "SL", "LL")
 
 ```
