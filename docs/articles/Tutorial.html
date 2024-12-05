@@ -91,18 +91,18 @@ Make sure to put the data into a dataframe </code></pre>
 <h2 id="tutorial-for-each-function">Tutorial for each function<a class="anchor" aria-label="anchor" href="#tutorial-for-each-function"></a>
 </h2>
 <div class="section level3">
-<h3 id="function-one-filters-the-data-to-remove-nas-and-juveniles-from-the-dataset">Function one filters the data to remove NAs and juveniles from the
-dataset<a class="anchor" aria-label="anchor" href="#function-one-filters-the-data-to-remove-nas-and-juveniles-from-the-dataset"></a>
+<h3 id="function-one">Function One<a class="anchor" aria-label="anchor" href="#function-one"></a>
 </h3>
+<p>Filters the data to remove NAs and juveniles from the dataset.</p>
 <pre><code><span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
 <span></span>
 <span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/Filter_Function.html">Filter_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="function-two-creates-a-violin-plot-that-will-be-faceted-by-a-designated-variable--for-testing-i-recommend-using-the-example-below-">Function two creates a violin plot that will be faceted by a
-designated variable. For testing I recommend using the example
-below.<a class="anchor" aria-label="anchor" href="#function-two-creates-a-violin-plot-that-will-be-faceted-by-a-designated-variable--for-testing-i-recommend-using-the-example-below-"></a>
+<h3 id="function-two">Function Two<a class="anchor" aria-label="anchor" href="#function-two"></a>
 </h3>
+<p>Creates a violin plot that will be faceted by a designated variable.
+For testing I recommend using the example below.</p>
 <pre><code>
 Fish_Data &lt;- read.csv("../data/Fish_Data.csv")
 
@@ -111,39 +111,42 @@ SchusterRPackage::Violin_Plot_Function(Fish_Data, “SL”, “LL”, “Sex”,
 </code></pre>
 </div>
 <div class="section level3">
-<h3 id="function-three-allows-you-to-check-to-see-if-fish-in-selected-column-are-too-small--i-recommend-using-this-function-to-look-at-standard-lengthssl-with-a-range-of-15-30-">Function three allows you to check to see if fish in selected column
-are too small. I recommend using this function to look at standard
-lengths(SL) with a range of 15-30.<a class="anchor" aria-label="anchor" href="#function-three-allows-you-to-check-to-see-if-fish-in-selected-column-are-too-small--i-recommend-using-this-function-to-look-at-standard-lengthssl-with-a-range-of-15-30-"></a>
+<h3 id="function-three">Function Three<a class="anchor" aria-label="anchor" href="#function-three"></a>
 </h3>
+<p>Allows you to check to see if fish in selected column are too small.
+I recommend using this function to look at standard lengths(SL) with a
+range of 15-30.</p>
 <pre><code><span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://dplyr.tidyverse.org" class="external-link">dplyr</a></span><span class="op">)</span></span>
 <span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/my_function.html">my_function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="va">SL</span>, <span class="fl">25</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="function-four-calculates-three-ratios-of-a-selected-columns-and-adds-a-new-columns-the-dataset-with-those-values--the-ratios-are-as-followed-sl_ll_ratiostandard-length-to-lateral-line-length-sl_tv_ratiostandard-length-to-total-vertebrae-count-and-ll_tv_ratiolateral-line-length-to-total-vertebrae-count---for-the-function-to-work-add-the-columns-in-the-order-listed-below-">Function four Calculates three ratios of a selected columns and adds
-a new columns the dataset with those values. The ratios are as followed
+<h3 id="function-four">Function Four<a class="anchor" aria-label="anchor" href="#function-four"></a>
+</h3>
+<p>Calculates three ratios of a selected columns and adds a new columns
+the dataset with those values. The ratios are as followed
 SL_LL_Ratio(standard length to lateral line length) ,
 SL_TV_Ratio(standard length to total vertebrae count) , and
 LL_TV_Ratio(lateral line length to total vertebrae count) . For the
-function to work add the columns in the order listed below.<a class="anchor" aria-label="anchor" href="#function-four-calculates-three-ratios-of-a-selected-columns-and-adds-a-new-columns-the-dataset-with-those-values--the-ratios-are-as-followed-sl_ll_ratiostandard-length-to-lateral-line-length-sl_tv_ratiostandard-length-to-total-vertebrae-count-and-ll_tv_ratiolateral-line-length-to-total-vertebrae-count---for-the-function-to-work-add-the-columns-in-the-order-listed-below-"></a>
-</h3>
+function to work add the columns in the order listed below.</p>
 <pre><code><span></span>
 <span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
 <span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/Ratio_Function.html">Ratio_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="va">SL</span>, <span class="va">LL</span>, <span class="va">TV</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="function-five-creates-a-linear-model-graph--for-testing-i-recommend-using-the-example-below-">Function five creates a linear model graph. For testing I recommend
-using the example below.<a class="anchor" aria-label="anchor" href="#function-five-creates-a-linear-model-graph--for-testing-i-recommend-using-the-example-below-"></a>
+<h3 id="function-five">Function Five<a class="anchor" aria-label="anchor" href="#function-five"></a>
 </h3>
+<p>Creates a linear model graph. For testing I recommend using the
+example below.</p>
 <pre><code><span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/LM_Graph_Function.html">LM_Graph_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="st">"SL"</span>, <span class="st">"LL"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
-<h3 id="function-six-creates-various-linear-model-tests-to-see-if-your-data-is-normally-distributed--for-testing-i-recommend-using-the-example-below-">Function six creates various linear model tests to see if your data
-is normally distributed. For testing I recommend using the example
-below.<a class="anchor" aria-label="anchor" href="#function-six-creates-various-linear-model-tests-to-see-if-your-data-is-normally-distributed--for-testing-i-recommend-using-the-example-below-"></a>
+<h3 id="function-six">Function Six<a class="anchor" aria-label="anchor" href="#function-six"></a>
 </h3>
+<p>Creates various linear model tests to see if your data is normally
+distributed. For testing I recommend using the example below.</p>
 <pre><code><span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/LM_Function.html">LM_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="st">"SL"</span>, <span class="st">"LL"</span><span class="op">)</span></span></code></pre>
