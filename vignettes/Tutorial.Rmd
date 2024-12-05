@@ -14,11 +14,18 @@ gs4_deauth()
 download.file("https://github.com/BennyShoe/Project_three/raw/refs/heads/main/data/R_Project1_Our_Data.csv","/cloud/project/data/Fish_Data.csv")
 
 Make sure to put the data into a dataframe 
+
+library(devtools)
+devtools::install_github("BennyShoe/Project_three")
+library(SchusterRPackage)
+
+
 ```
 
 ## Tutorial for each function
 
 ### Function One 
+
 Filters the data to remove NAs and juveniles from the dataset.
 ```
 Fish_Data <- read.csv("../data/Fish_Data.csv")
@@ -33,7 +40,7 @@ Creates a violin plot that will be faceted by a designated variable. For testing
 Fish_Data <- read.csv("../data/Fish_Data.csv")
 
 library(ggplot2)
-SchusterRPackage::Violin_Plot_Function(Fish_Data, “SL”, “LL”, “Sex”, "Sex", "SL", "LL")
+SchusterRPackage::Violin_Plot_Function(Fish_Data, SL, LL, Sex, "Sex", "SL", "LL")
 
 ```
 

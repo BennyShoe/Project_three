@@ -86,7 +86,13 @@ library(googlesheets4)
 gs4_deauth()
 download.file("https://github.com/BennyShoe/Project_three/raw/refs/heads/main/data/R_Project1_Our_Data.csv","/cloud/project/data/Fish_Data.csv")
 
-Make sure to put the data into a dataframe </code></pre>
+Make sure to put the data into a dataframe 
+
+library(devtools)
+devtools::install_github("BennyShoe/Project_three")
+library(SchusterRPackage)
+
+</code></pre>
 <div class="section level2">
 <h2 id="tutorial-for-each-function">Tutorial for each function<a class="anchor" aria-label="anchor" href="#tutorial-for-each-function"></a>
 </h2>
@@ -103,12 +109,11 @@ Make sure to put the data into a dataframe </code></pre>
 </h3>
 <p>Creates a violin plot that will be faceted by a designated variable.
 For testing I recommend using the example below.</p>
-<pre><code>
-Fish_Data &lt;- read.csv("../data/Fish_Data.csv")
-
-library(ggplot2)
-SchusterRPackage::Violin_Plot_Function(Fish_Data, “SL”, “LL”, “Sex”, "Sex", "SL", "LL")
-</code></pre>
+<pre><code><span></span>
+<span><span class="va">Fish_Data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html" class="external-link">read.csv</a></span><span class="op">(</span><span class="st">"../data/Fish_Data.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
+<span><span class="fu">SchusterRPackage</span><span class="fu">::</span><span class="fu"><a href="../reference/Violin_Plot_Function.html">Violin_Plot_Function</a></span><span class="op">(</span><span class="va">Fish_Data</span>, <span class="va">SL</span>, <span class="va">LL</span>, <span class="va">Sex</span>, <span class="st">"Sex"</span>, <span class="st">"SL"</span>, <span class="st">"LL"</span><span class="op">)</span></span></code></pre>
 </div>
 <div class="section level3">
 <h3 id="function-three">Function Three<a class="anchor" aria-label="anchor" href="#function-three"></a>
