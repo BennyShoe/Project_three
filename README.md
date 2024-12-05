@@ -23,16 +23,16 @@ download.file("https://github.com/BennyShoe/Project_three/raw/refs/heads/main/da
 ```
 
 ## Functions 
-+ Tutorials for the functions will be provided in the vignettes folder 
++ Tutorials for the functions will be provided in the vignettes folder. 
 
-+ Function one filters the data to remove NAs and juveniles from the dataset
++ Function one filters the data to remove NAs and juveniles from the dataset.
 
-+ Function two creates a violin plot that will be faceted by a designated variable. For testing I recommend using the example below.  
++ Function two creates a violin plot that will be faceted by a designated variable. 
+ 
++ Function three allows you to check to see if fish in selected column are too small. 
 
-+ Function three allows you to check to see if fish in selected column are too small. I recommend using this function to look at standard lengths(SL) with a range of 15-30. 
++ Function four Calculates three ratios of a selected columns and adds a new columns the dataset with those values. The ratios are as followed SL_LL_Ratio(standard length to lateral line length) , SL_TV_Ratio(standard length to total vertebrae count), and LL_TV_Ratio(lateral line length to total vertebrae count).  
 
-+ Function four Calculates three ratios of a selected columns and adds a new columns the dataset with those values. The ratios are as followed SL_LL_Ratio(standard length to lateral line length) , SL_TV_Ratio(standard length to total vertebrae count) , and LL_TV_Ratio(lateral line length to total vertebrae count) . For the function to work add the columns in the order listed below. 
++ Function five creates a linear model graph. 
 
-+ Function five creates a linear model graph. For testing I recommend using the example below.  
-
-+ Function six creates various linear model tests to see if your data is normally distributed. For testing I recommend using the example below.  
++ Function six creates various linear model tests to see if your data is normally distributed.
