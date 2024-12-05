@@ -1,4 +1,4 @@
-# Sample R Package 
+# SchusterRPackage 
 ## An example of an R package 
 ### Author: Ben Schuster 
 #### Spring 2024
